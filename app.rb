@@ -4,6 +4,11 @@ require 'json'
 class App < Sinatra::Base
   get '/' do
     @error = params['error']
+    erb :splash
+  end
+
+  get '/home' do
+    @error = params['error']
     erb :home
   end
 
