@@ -1,5 +1,40 @@
-<ul>
-  <% @listings.each do |item| %>
-    <li><%= item.data.title %> </li>
-  <% end %>
-</ul>
+<div class="panel panel-default">
+	<ul class="list-group" id="reddit-list">
+  
+	</ul>
+</div>
+<script>
+
+var searchTerm = 'cats';
+var response;
+
+$.ajax(
+    "https://www.reddit.com/subreddits/search.json",
+    {
+        data: { q: searchTerm },
+        success: function(responseData) {
+            if (responseData.data.children.length > 0) {
+                console.log('# of results: ' + responseData.data.children.length);
+                $.each(responseData.data.children, function(idx, searchResult) {
+                    console.log("--- Title of Subreddit: " + searchResult.data.title);
+                });
+                response = responseData.data.children;
+                console.log(response);
+                if(response){
+                	for(var i = 0; i < response.length; i += 1){
+                		$("#reddit-list").append('<li class="list-group-item">'+ '<img src="' + response[i].data.header_img +'"/>'
+                		 + response[i].data.title + '</li>')
+                	}
+                }
+            } else {
+                console.log("No subreddits match the search query!");
+            }
+        },
+        error: function() {
+            alert("Something didn't work!");
+        }
+    }
+);	
+
+
+</script>

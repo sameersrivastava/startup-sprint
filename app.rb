@@ -23,6 +23,13 @@ class App < Sinatra::Base
     erb :subscribe
   end
 
+  get '/youtube' do
+     # TODO: we can probably get the listings with something like:
+     # JSON.parse(RestClient.get('http://reddit.com/.json'))
+ 
+     erb :youtube
+   end
+
   get '/team' do
     # TODO: we can probably get the listings with something like:
     # JSON.parse(RestClient.get('http://reddit.com/.json'))
@@ -39,7 +46,8 @@ class App < Sinatra::Base
     # TODO: we can probably get the listings with something like:
     #JSON.parse(RestClient.get('http://reddit.com/.json'))
 
-    @listings = JSON.parse(RestClient.get('http://reddit.com/.json'))['data']['children'];
+    #@listings = JSON.parse(RestClient.get());
+    #@listings = JSON.parse(test.json);
 
     erb :reddit
   end
