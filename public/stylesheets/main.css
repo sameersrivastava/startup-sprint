@@ -2,6 +2,22 @@
  * TODO: add custom styling
  */
 
+
+ <style type="text/css">
+
+   input:invalid {
+     background-color: red;
+     color: white;
+   }
+
+   input:valid {
+    background-color: green;
+    color: white;
+   }
+
+ </style>
+
+
 .column {
 	width:33%;
 }

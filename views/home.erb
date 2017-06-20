@@ -5,12 +5,16 @@
 <% if @error == 'email' %>
   <p style="color: red;">Please enter a valid email</p>
 <% end %>
+
 <form method=POST action="/subscribe">
   <label for="full-name">Full Name</label>
   <input type="text" id="full-name" name="full_name" required>
+
   <label for="email">Email</label>
-  <input type="text" id="email" name="email" required>
-  <label for="email">City</label>
+  <input type="text" id="email" name="email" pattern="[^@]+@[^@]+.[a-z]" title="An email you dummy. And not the throwaway one you used for Etsy." required>
+
+  <label for="city">City</label>
   <input type="text" id="city" name="city" required>
+
   <input type="Submit">
 </form>
