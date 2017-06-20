@@ -6,11 +6,6 @@ class App < Sinatra::Base
     erb :home
   end
 
-  get "/home" do
-    redirect "/"
-    erb :home
-  end
-
   post '/subscribe' do
     @full_name = params[:full_name]
     @email = params[:email]
@@ -29,11 +24,9 @@ class App < Sinatra::Base
     erb :team
   end
 
-  get '/youtube' do
-    # TODO: we can probably get the listings with something like:
-    # JSON.parse(RestClient.get('http://reddit.com/.json'))
+  get '/rainbow' do
 
-    erb :youtube
+    erb :rainbow
   end
 
   get '/reddit' do
